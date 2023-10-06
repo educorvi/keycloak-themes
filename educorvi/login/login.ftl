@@ -1,7 +1,7 @@
 <#import "template.ftl" as layout>
 <@layout.registrationLayout displayMessage=!messagesPerField.existsError('username','password') displayInfo=realm.password && realm.registrationAllowed && !registrationDisabled??; section>
     <#if section = "form">
-        <h5>${msg("loginAccountTitle")}</h5>
+        <h5 style="margin-top: 6px">${msg("loginAccountTitle")}</h5>
 
 
         <#if messagesPerField.existsError('username','password')>
@@ -12,7 +12,7 @@
 
         <form class="mt-4" onsubmit="login.disabled = true; return true;" action="${url.loginAction}" method="post">
             <!-- Username -->
-            <label style="margin-bottom: 0" for="username"><#if !realm.loginWithEmailAllowed>${msg("username")}<#elseif !realm.registrationEmailAsUsername>${msg("usernameOrEmail")}<#else>${msg("email")}</#if></label>
+
             <div class="form-floating">
                 <#if usernameEditDisabled??>
                     <input tabindex="1" type="text" class="form-control" id="username" name="username"
@@ -21,14 +21,15 @@
                     <input tabindex="1" type="text" class="form-control" id="username" name="username"
                            value="${(login.username!'')}" autofocus placeholder="username">
                 </#if>
-
+                <label style="margin-bottom: 0"
+                       for="username"><#if !realm.loginWithEmailAllowed>${msg("username")}<#elseif !realm.registrationEmailAsUsername>${msg("usernameOrEmail")}<#else>${msg("email")}</#if></label>
             </div>
 
             <!-- Pw -->
             <div class="form-floating mt-3">
-                <label style="margin-bottom: 0" for="password">${msg("password")}</label>
                 <input tabindex="2" type="password" class="form-control" id="password" name="password"
                        value="${(login.username!'')}" autofocus placeholder="password">
+                <label for="password">${msg("password")}</label>
             </div>
 
             <!-- Forgot pw -->

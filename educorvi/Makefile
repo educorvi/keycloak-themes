@@ -1,5 +1,5 @@
 .PHONY: all
-scss_src = $(wildcard **/*.scss)
+scss_src = $(shell find . -type f -name "*.scss")
 bootstrap = login/resources/theme/node_modules/bootstrap/README.md
 ef_theme = login/resources/theme/ef_theme-fiverules/theme.scss
 
@@ -20,3 +20,6 @@ $(ef_theme):
 
 login/resources/theme/theme.css: $(scss_src) $(bootstrap) $(ef_theme)
 	cd login/resources/theme && npm run build
+
+css-clean:
+	rm -f login/resources/theme/theme.css

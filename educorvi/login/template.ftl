@@ -91,10 +91,36 @@
             <div class="row">
                 <div class="col-12 col-md-6 col-lg-4 offset-md-3 offset-lg-4">
                     <div id="kc-content" class="card">
+
+                            <#-- App-initiated actions should not see warning messages about the need to complete the action -->
+                            <#-- during login.                                                                               -->
+                            <#if displayMessage && message?has_content && (message.type != 'warning' || !isAppInitiatedAction??)>
+                                <#if message.type = 'success'>
+                                    <div class="alert alert-success mb-2">
+                                        ${kcSanitize(message.summary)?no_esc}
+                                    </div>
+                                </#if>
+                                <#if message.type = 'warning'>
+                                    <div class="alert alert-warning mb-2">
+                                        ${kcSanitize(message.summary)?no_esc}
+                                    </div>
+                                </#if>
+                                <#if message.type = 'error'>
+                                    <div class="alert alert-danger mb-2">
+                                        ${kcSanitize(message.summary)?no_esc}
+                                    </div>
+                                </#if>
+                                <#if message.type = 'info'>
+                                    <div class="alert alert-primary mb-2">
+                                        ${kcSanitize(message.summary)?no_esc}
+                                    </div>
+                                </#if>
+                            </#if>
                         <div id="kc-content-wrapper" class="card-body">
                             <div>
                                 <#if realm.internationalizationEnabled  && locale.supported?size gt 1>
-                                    <div id="kc-locale" style="float: right; margin-right: -10px; margin-top: -10px; max-width: 100%">
+                                    <div id="kc-locale"
+                                         style="float: right; max-width: 100%">
                                         <div class="btn-group">
                                             <button type="button" class="btn btn-outline-primary dropdown-toggle"
                                                     data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"
@@ -109,46 +135,22 @@
                                         </div>
 
 
-<#--                                        <div id="kc-locale-wrapper" class="${properties.kcLocaleWrapperClass!}">-->
-<#--                                            <div class="kc-dropdown dropdown show" id="kc-locale-dropdown">-->
-<#--                                                <a href="#" id="kc-current-locale-link"-->
-<#--                                                   class="btn btn-outline-primary dropdown-toggle"-->
-<#--                                                   role="button" id="dropdownMenuButton" data-toggle="dropdown"-->
-<#--                                                   aria-haspopup="true" aria-expanded="false">${locale.current}</a>-->
-<#--                                                <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">-->
-<#--                                                    <#list locale.supported as l>-->
-<#--                                                        <a class="dropdown-item" href="${l.url}">${l.label}</a>-->
-<#--                                                    </#list>-->
-<#--                                                </div>-->
-<#--                                            </div>-->
-<#--                                        </div>-->
+                                        <#--                                        <div id="kc-locale-wrapper" class="${properties.kcLocaleWrapperClass!}">-->
+                                        <#--                                            <div class="kc-dropdown dropdown show" id="kc-locale-dropdown">-->
+                                        <#--                                                <a href="#" id="kc-current-locale-link"-->
+                                        <#--                                                   class="btn btn-outline-primary dropdown-toggle"-->
+                                        <#--                                                   role="button" id="dropdownMenuButton" data-toggle="dropdown"-->
+                                        <#--                                                   aria-haspopup="true" aria-expanded="false">${locale.current}</a>-->
+                                        <#--                                                <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">-->
+                                        <#--                                                    <#list locale.supported as l>-->
+                                        <#--                                                        <a class="dropdown-item" href="${l.url}">${l.label}</a>-->
+                                        <#--                                                    </#list>-->
+                                        <#--                                                </div>-->
+                                        <#--                                            </div>-->
+                                        <#--                                        </div>-->
                                     </div>
                                 </#if>
                             </div>
-                            <#-- App-initiated actions should not see warning messages about the need to complete the action -->
-                            <#-- during login.                                                                               -->
-                            <#if displayMessage && message?has_content && (message.type != 'warning' || !isAppInitiatedAction??)>
-                                <#if message.type = 'success'>
-                                    <div class="alert alert-success mb-4">
-                                        ${kcSanitize(message.summary)?no_esc}
-                                    </div>
-                                </#if>
-                                <#if message.type = 'warning'>
-                                    <div class="alert alert-warning mb-4">
-                                        ${kcSanitize(message.summary)?no_esc}
-                                    </div>
-                                </#if>
-                                <#if message.type = 'error'>
-                                    <div class="alert alert-danger mb-4">
-                                        ${kcSanitize(message.summary)?no_esc}
-                                    </div>
-                                </#if>
-                                <#if message.type = 'info'>
-                                    <div class="alert alert-primary mb-4">
-                                        ${kcSanitize(message.summary)?no_esc}
-                                    </div>
-                                </#if>
-                            </#if>
 
                             <#nested "form">
 
