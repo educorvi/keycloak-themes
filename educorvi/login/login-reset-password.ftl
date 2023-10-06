@@ -13,8 +13,11 @@
             <div class="form-floating mt-3">
                 <input type="text" id="username" name="username"
                        class="form-control<#if messagesPerField.existsError('username')> is-invalid</#if>" autofocus
-<#--                       value="${(auth.attemptedUsername!'')}"-->
-                       aria-invalid="<#if messagesPerField.existsError('username')>true</#if>"/>
+                       value="${(auth.attemptedUsername!'')}"
+                       aria-invalid="<#if messagesPerField.existsError('username')>true</#if>"
+                       aria-describedby="usernameError"
+                       placeholder="<#if !realm.loginWithEmailAllowed>${msg("username")}<#elseif !realm.registrationEmailAsUsername>${msg("usernameOrEmail")}<#else>${msg("email")}</#if>"
+                />
                 <label for="username"
                        class="${properties.kcLabelClass!}"><#if !realm.loginWithEmailAllowed>${msg("username")}<#elseif !realm.registrationEmailAsUsername>${msg("usernameOrEmail")}<#else>${msg("email")}</#if></label>
                 <div class="invalid-feedback">
