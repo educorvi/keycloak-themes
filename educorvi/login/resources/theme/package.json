@@ -1,0 +1,12 @@
+{
+  "dependencies": {
+    "bootstrap": "^5.2.0"
+  },
+  "devDependencies": {
+    "sass": "^1.69.0"
+  },
+  "scripts": {
+    "build": "npm run build:css",
+    "build:css": "sass theme_with_bootstrap.scss theme.css"
+  }
+}
