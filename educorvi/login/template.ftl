@@ -89,43 +89,49 @@
                 </#if>
             </header>
             <div class="row">
-                <div class="col-12 col-md-6 col-lg-4 offset-md-3 offset-lg-4">
+                <div class="col-md-2 col-lg-3"></div>
+                <div class="col-12 col-md-8 col-lg-6">
                     <div id="kc-content" class="card">
 
-                            <#-- App-initiated actions should not see warning messages about the need to complete the action -->
-                            <#-- during login.                                                                               -->
-                            <#if displayMessage && message?has_content && (message.type != 'warning' || !isAppInitiatedAction??)>
-                                <#if message.type = 'success'>
-                                    <div class="alert alert-success mb-2">
-                                        ${kcSanitize(message.summary)?no_esc}
-                                    </div>
-                                </#if>
-                                <#if message.type = 'warning'>
-                                    <div class="alert alert-warning mb-2">
-                                        ${kcSanitize(message.summary)?no_esc}
-                                    </div>
-                                </#if>
-                                <#if message.type = 'error'>
-                                    <div class="alert alert-danger mb-2">
-                                        ${kcSanitize(message.summary)?no_esc}
-                                    </div>
-                                </#if>
-                                <#if message.type = 'info'>
-                                    <div class="alert alert-primary mb-2">
-                                        ${kcSanitize(message.summary)?no_esc}
-                                    </div>
-                                </#if>
+                        <#-- App-initiated actions should not see warning messages about the need to complete the action -->
+                        <#-- during login.                                                                               -->
+                        <#if displayMessage && message?has_content && (message.type != 'warning' || !isAppInitiatedAction??)>
+                            <#if message.type = 'success'>
+                                <div class="alert alert-success mb-2">
+                                    ${kcSanitize(message.summary)?no_esc}
+                                </div>
                             </#if>
+                            <#if message.type = 'warning'>
+                                <div class="alert alert-warning mb-2">
+                                    ${kcSanitize(message.summary)?no_esc}
+                                </div>
+                            </#if>
+                            <#if message.type = 'error'>
+                                <div class="alert alert-danger mb-2">
+                                    ${kcSanitize(message.summary)?no_esc}
+                                </div>
+                            </#if>
+                            <#if message.type = 'info'>
+                                <div class="alert alert-primary mb-2">
+                                    ${kcSanitize(message.summary)?no_esc}
+                                </div>
+                            </#if>
+                        </#if>
                         <div id="kc-content-wrapper" class="card-body">
                             <div>
                                 <#if realm.internationalizationEnabled  && locale.supported?size gt 1>
                                     <div id="kc-locale"
                                          style="float: right; max-width: 100%">
                                         <div class="btn-group">
-                                            <button type="button" class="btn btn-outline-primary dropdown-toggle"
-                                                    data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"
-                                                    style="padding: 6px 12px;">
+                                            <button class="btn btn-outline-primary dropdown-toggle" type="button"
+                                                    data-bs-toggle="dropdown" aria-expanded="false" style="padding: 6px 12px;">
                                                 ${locale.current}
+                                            </button>
+
+<#--                                            <button type="button" class="btn btn-outline-primary dropdown-toggle"-->
+<#--                                                    data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"-->
+<#--                                                    style="padding: 6px 12px;">-->
+
                                             </button>
                                             <ul class="dropdown-menu">
                                                 <#list locale.supported as l>
@@ -177,6 +183,7 @@
                         </div>
                     </div>
                 </div>
+                <div class="col-md-2 col-lg-3"></div>
             </div>
 
         </div>

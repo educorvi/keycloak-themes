@@ -47,7 +47,7 @@
                     <#else>
                         <input class="form-check-input" type="checkbox" id="rememberMe" name="rememberMe">
                     </#if>
-                    <label class="form-check-label" for="rememberMe">
+                    <label class="form-check-label" for="rememberMe" style="padding-top: 3px">
                         ${msg("rememberMe")}
                     </label>
                 </div>
