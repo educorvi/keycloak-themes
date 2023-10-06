@@ -117,20 +117,25 @@
                                 </div>
                             </#if>
                         </#if>
+
+                        <#nested "alert">
                         <div id="kc-content-wrapper" class="card-body">
-                            <div>
+                            <div class="row">
+                                <div class="col">
+                                    <h5 style="margin-top: 6px; padding-top: 3px"><#nested "header"></h5>
+                                </div>
                                 <#if realm.internationalizationEnabled  && locale.supported?size gt 1>
-                                    <div id="kc-locale"
-                                         style="float: right; max-width: 100%">
-                                        <div class="btn-group">
+                                    <div class="col" id="kc-locale">
+                                        <div class="btn-group float-end">
                                             <button class="btn btn-outline-primary dropdown-toggle" type="button"
-                                                    data-bs-toggle="dropdown" aria-expanded="false" style="padding: 6px 12px;">
+                                                    data-bs-toggle="dropdown" aria-expanded="false"
+                                                    style="padding: 6px 12px;">
                                                 ${locale.current}
                                             </button>
 
-<#--                                            <button type="button" class="btn btn-outline-primary dropdown-toggle"-->
-<#--                                                    data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"-->
-<#--                                                    style="padding: 6px 12px;">-->
+                                            <#--                                            <button type="button" class="btn btn-outline-primary dropdown-toggle"-->
+                                            <#--                                                    data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"-->
+                                            <#--                                                    style="padding: 6px 12px;">-->
 
                                             </button>
                                             <ul class="dropdown-menu">
@@ -174,11 +179,7 @@
                             </#if>
 
                             <#if displayInfo>
-                                <div id="kc-info" class="${properties.kcSignUpClass!}">
-                                    <div id="kc-info-wrapper" class="${properties.kcInfoAreaWrapperClass!}">
-                                        <#nested "info">
-                                    </div>
-                                </div>
+                                <#nested "info">
                             </#if>
                         </div>
                     </div>

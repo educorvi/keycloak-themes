@@ -1,45 +1,51 @@
 <#import "template.ftl" as layout>
 <@layout.registrationLayout displayMessage=!messagesPerField.existsError('username','password') displayInfo=realm.password && realm.registrationAllowed && !registrationDisabled??; section>
-    <#if section = "form">
-        <h5 style="margin-top: 6px; padding-top: 3px">${msg("loginAccountTitle")}</h5>
-
-
+    <#if section = "header">
+        ${msg("loginAccountTitle")}
+    <#elseif section = "alert">
         <#if messagesPerField.existsError('username','password')>
-            <div class="alert alert-danger mt-3">
+            <div class="alert alert-danger">
                 ${kcSanitize(messagesPerField.getFirstError('username','password'))?no_esc}
             </div>
         </#if>
+    <#elseif section = "form">
 
         <form class="mt-4" onsubmit="login.disabled = true; return true;" action="${url.loginAction}" method="post">
             <!-- Username -->
 
             <div class="form-floating">
                 <#if usernameEditDisabled??>
-                    <input tabindex="1" type="text" class="form-control<#if messagesPerField.existsError('username','password')> is-invalid</#if>" id="username" name="username"
+                    <input tabindex="1" type="text"
+                           class="form-control<#if messagesPerField.existsError('username','password')> is-invalid</#if>"
+                           id="username" name="username"
                            value="${(login.username!'')}" disabled>
                 <#else>
-                    <input tabindex="1" type="text" class="form-control<#if messagesPerField.existsError('username','password')> is-invalid</#if>" id="username" name="username"
+                    <input tabindex="1" type="text"
+                           class="form-control<#if messagesPerField.existsError('username','password')> is-invalid</#if>"
+                           id="username" name="username"
                            value="${(login.username!'')}" autofocus placeholder="username">
                 </#if>
                 <label style="margin-bottom: 0"
                        for="username"><#if !realm.loginWithEmailAllowed>${msg("username")}<#elseif !realm.registrationEmailAsUsername>${msg("usernameOrEmail")}<#else>${msg("email")}</#if></label>
-<#--                <div class="invalid-feedback">-->
-<#--                    <#if messagesPerField.existsError('username','password')>-->
-<#--                            ${kcSanitize(messagesPerField.getFirstError('username','password'))?no_esc}-->
-<#--                    </#if>-->
-<#--                </div>-->
+                <#--                <div class="invalid-feedback">-->
+                <#--                    <#if messagesPerField.existsError('username','password')>-->
+                <#--                            ${kcSanitize(messagesPerField.getFirstError('username','password'))?no_esc}-->
+                <#--                    </#if>-->
+                <#--                </div>-->
             </div>
 
             <!-- Pw -->
             <div class="form-floating mt-3">
-                <input tabindex="2" type="password" class="form-control<#if messagesPerField.existsError('username','password')> is-invalid</#if>" id="password" name="password"
-                       value="${(login.username!'')}" autofocus placeholder="password">
+                <input tabindex="2" type="password"
+                       class="form-control<#if messagesPerField.existsError('username','password')> is-invalid</#if>"
+                       id="password" name="password"
+                       autofocus placeholder="password">
                 <label for="password">${msg("password")}</label>
-<#--                <div class="invalid-feedback">-->
-<#--                    <#if messagesPerField.existsError('username','password')>-->
-<#--                            ${kcSanitize(messagesPerField.getFirstError('username','password'))?no_esc}-->
-<#--                    </#if>-->
-<#--                </div>-->
+                <#--                <div class="invalid-feedback">-->
+                <#--                    <#if messagesPerField.existsError('username','password')>-->
+                <#--                            ${kcSanitize(messagesPerField.getFirstError('username','password'))?no_esc}-->
+                <#--                    </#if>-->
+                <#--                </div>-->
             </div>
 
             <!-- Forgot pw -->
