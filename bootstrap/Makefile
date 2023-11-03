@@ -8,7 +8,6 @@ dist: build_theme
 	mkdir -p dist/login/resources/node_modules/bootstrap/
 	cp login/theme.properties dist/login
 	cp login/*.ftl dist/login
-	cp -R login/resources/img dist/login/resources
 	cp -R login/resources/node_modules/bootstrap/dist dist/login/resources/node_modules/bootstrap
 
 check_dependency_%:
