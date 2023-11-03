@@ -1,0 +1,27 @@
+name: Build and Release
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        theme:
+          - bootstrap
+          - educorvi
+          - siguv
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          submodules: true
+      - uses: actions/setup-node@v3
+      - name: Build ${{matrix.theme}}
+        run: ./createDist.js ${{matrix.theme}}
+      - uses: actions/upload-artifact@v3
+        with:
+          name: ${{matrix.theme}}
+          path: dist/*
