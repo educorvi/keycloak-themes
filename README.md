@@ -1,13 +1,19 @@
-# Setup
+# Installation
+## Download from releases
+Download the zip file for the theme you want and extract it into the theme folder of keycloak.
+
 ## Clone
 Clone as `keycloak/themes` directory to make all themes available to keycloak.
 Alternatively you can manually copy the themes to the `themes` directory of your keycloak installation.
 ```bash
 git clone --recurse-submodules https://github.com/educorvi/keycloak-themes.git /your/keycloak-dir/themes
 ```
+To install all needed dependencies, either run the createDist.js script and pass the name of the theme(s) you want to use as an argument (space separated list), or execute `make` in all theme directories.
+If you want to execute the script, you need to run `npm install` one time before that, to install dependencies.
 
-## Installation
-Before using the educorvi theme, you need to switch to the folder educorvi and run `make` there
+# Development
+Install the dev dependencies by running `npm install`
+To build the zip file for the theme(s) you want, execute createDist.js as described above which will created a dist zip
 
 ---
 
