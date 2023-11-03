@@ -19,6 +19,7 @@ jobs:
         with:
           submodules: true
       - uses: actions/setup-node@v3
+      - run: npm ci
       - name: Build ${{matrix.theme}}
         run: ./createDist.js ${{matrix.theme}}
       - uses: actions/upload-artifact@v3
