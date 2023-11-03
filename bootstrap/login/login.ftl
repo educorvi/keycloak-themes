@@ -9,7 +9,6 @@
             </div>
         </#if>
     <#elseif section = "form">
-
         <form class="mt-4" onsubmit="login.disabled = true; return true;" action="${url.loginAction}" method="post">
             <!-- Username -->
 

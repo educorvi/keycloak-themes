@@ -14,7 +14,9 @@
             </#list>
         </#if>
         <title>${msg("loginTitle",(realm.displayName!''))}</title>
-        <link rel="icon" href="${url.resourcesPath}/img/favicon.png"/>
+        <#if properties.favicon!=''>
+            <link rel="icon" href="${url.resourcesPath}${properties.favicon}"/>
+        </#if>
         <#if properties.styles?has_content>
             <#list properties.styles?split(' ') as style>
                 <link href="${url.resourcesPath}/${style}" rel="stylesheet"/>
@@ -44,10 +46,15 @@
         <div class="${properties.kcFormCardClass!} <#if displayWide>${properties.kcFormCardAccountClass!}</#if>">
             <header class="${properties.kcFormHeaderClass!}">
                 <#if !(auth?has_content && auth.showUsername() && !auth.showResetCredentials())>
-                    <p class="text-center mt-5 mb-4">
-                        <img src="${url.resourcesPath}/img/logo.svg" width="200" class="rounded-3"
-                             style="max-width: 100%"/>
-                    </p>
+                    <div class="text-center mt-5 mb-4" id="loginTitleDiv">
+                        <#if properties.logo != ''>
+                            <img src="${url.resourcesPath}${properties.logo}" width="200" class="rounded-3"
+                                 style="max-width: 100%"/>
+                        <#else>
+                            <h1>${realm.displayName}</h1>
+                        </#if>
+
+                    </div>
                 <#--                    <h2 class="text-center mt-4 mb-5">${(realm.displayName!'App Name')}</h2>-->
                 <#--                    <h2 class="text-center mt-4 mb-5">${client.name}</h2>-->
                 <#else>
