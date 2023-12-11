@@ -6,9 +6,11 @@ all: build_theme
 dist: build_theme
 	rm -rf dist
 	mkdir -p dist/login/resources/node_modules/bootstrap/
+	mkdir -p dist/login/resources/js
 	cp login/theme.properties dist/login
 	cp login/*.ftl dist/login
 	cp -R login/resources/node_modules/bootstrap/dist dist/login/resources/node_modules/bootstrap
+	cp -R login/resources/js dist/login/resources
 
 check_dependency_%:
 	@echo -n "Checking dependency $*... "
