@@ -38,7 +38,7 @@
         </#if>
     </head>
 
-    <body class="container pt-3" style="background-color: #f5f5f5;">
+    <body class="container pt-3">
     <div class="">
         <div id="kc-header" class="${properties.kcHeaderClass!}">
             <#-- <div id="kc-header-wrapper" class="${properties.kcHeaderWrapperClass!}">${kcSanitize(msg("loginTitleHtml",(realm.displayNameHtml!'')))?no_esc}</div> -->
