@@ -48,8 +48,8 @@
                 <#if !(auth?has_content && auth.showUsername() && !auth.showResetCredentials())>
                     <div class="text-center mt-5 mb-4" id="loginTitleDiv">
                         <#if properties.logo != ''>
-                            <img src="${url.resourcesPath}${properties.logo}" width="200" class="rounded-3"
-                                 style="max-width: 100%"/>
+                                <img id="logoImg" src="${url.resourcesPath}${properties.logo}" class="rounded-3"
+                                     style="max-width: 100%"/>
                         <#else>
                             <h1>${realm.displayName}</h1>
                         </#if>

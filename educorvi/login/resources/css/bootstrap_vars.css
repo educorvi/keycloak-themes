@@ -1,0 +1,9 @@
+:root {
+    --bs-primary: var(--color-consulting);
+    --bs-secondary: var(--color-education);
+    --bs-success: var(--color-software);
+    --bs-info: var(--color-education);
+    --bs-warning: var(--color-highlight);
+    --bs-danger: var(--color-cta);
+
+}
