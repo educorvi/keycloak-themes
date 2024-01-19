@@ -11,6 +11,7 @@ dist: build_theme
 	cp login/*.ftl dist/login
 	cp -R login/resources/node_modules/bootstrap/dist dist/login/resources/node_modules/bootstrap
 	cp -R login/resources/js dist/login/resources
+	cp -R login/resources/css dist/login/resources
 
 check_dependency_%:
 	@echo -n "Checking dependency $*... "
