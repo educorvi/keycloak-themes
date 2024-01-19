@@ -7,7 +7,7 @@ dist: build_theme
 	rm -rf dist
 	mkdir -p dist/login/resources
 	cp login/theme.properties dist/login
-	cp -R login/resources/img dist/login/resources
+	cp -R login/resources dist/login
 
 check_dependency_%:
 	@echo -n "Checking dependency $*... "
