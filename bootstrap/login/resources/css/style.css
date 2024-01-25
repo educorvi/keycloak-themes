@@ -4,3 +4,11 @@
     width: 300px;
     max-width: 100%;
 }
+input[type=checkbox]{
+    accent-color: var(--bs-danger);
+}
+.form-check-input:checked
+{
+  background-color: var(--bs-danger);
+  border-color: var(--bs-danger);
+}

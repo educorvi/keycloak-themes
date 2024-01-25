@@ -2,7 +2,7 @@
 <#import "register-commons.ftl" as registerCommons>
 <@layout.registrationLayout displayMessage=!messagesPerField.existsError('firstName','lastName','email','username','password','password-confirm','termsAccepted'); section>
     <#if section = "header">
-        ${msg("registerTitle")}
+        <h4>${msg("registerTitle")}</h4>
     <#elseif section = "form">
         <div id="kc-form-options" class="${properties.kcFormOptionsClass!}">
             <div class="${properties.kcFormOptionsWrapperClass!}">
