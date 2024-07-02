@@ -104,22 +104,22 @@
                         <#-- during login.                                                                               -->
                         <#if displayMessage && message?has_content && (message.type != 'warning' || !isAppInitiatedAction??)>
                             <#if message.type = 'success'>
-                                <div class="alert alert-success mb-2">
+                                <div class="alert alert-success mb-1">
                                     ${kcSanitize(message.summary)?no_esc}
                                 </div>
                             </#if>
                             <#if message.type = 'warning'>
-                                <div class="alert alert-warning mb-2">
+                                <div class="alert alert-warning mb-1">
                                     ${kcSanitize(message.summary)?no_esc}
                                 </div>
                             </#if>
                             <#if message.type = 'error'>
-                                <div class="alert alert-danger mb-2">
+                                <div class="alert alert-danger mb-1">
                                     ${kcSanitize(message.summary)?no_esc}
                                 </div>
                             </#if>
                             <#if message.type = 'info'>
-                                <div class="alert alert-primary mb-2">
+                                <div class="alert alert-primary mb-1">
                                     ${kcSanitize(message.summary)?no_esc}
                                 </div>
                             </#if>
