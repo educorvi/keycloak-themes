@@ -1,9 +1,6 @@
 {
   "name": "themes",
   "version": "1.0.0",
-  "dependencies": {
-
-  },
   "devDependencies": {
     "archiver": "^6.0.1"
   }

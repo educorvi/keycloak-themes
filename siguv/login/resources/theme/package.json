@@ -3,10 +3,12 @@
     "bootstrap": "^5.2.0"
   },
   "devDependencies": {
+    "clean-css-cli": "^5.6.3",
     "sass": "^1.69.0"
   },
   "scripts": {
-    "build": "npm run build:css",
-    "build:css": "sass theme_with_bootstrap.scss theme.css"
+    "build": "npm run build:css && npm run build:css-min",
+    "build:css": "sass theme_with_bootstrap.scss theme.css",
+    "build:css-min": "cleancss -o theme.min.css theme.css"
   }
 }

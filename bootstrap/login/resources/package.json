@@ -2,6 +2,15 @@
   "name": "resources",
   "version": "1.0.0",
   "dependencies": {
-    "bootstrap": "^5.3.2"
+    "bootstrap": "^5.3.3"
+  },
+  "scripts": {
+    "build": "npm run build:css && npm run build:css-min",
+    "build:css": "sass css/bootstrap.scss css/bootstrap.css",
+    "build:css-min": "cleancss -o css/bootstrap.min.css css/bootstrap.css"
+  },
+  "devDependencies": {
+    "clean-css-cli": "^5.6.3",
+    "sass": "^1.77.8"
   }
 }

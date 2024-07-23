@@ -11,13 +11,14 @@ dist: build_theme
 	cp login/theme.properties dist/login
 	cp -R login/resources/img dist/login/resources
 	cp -R login/resources/theme/theme.css dist/login/resources/theme/theme.css
+	cp -R login/resources/theme/theme.min.css dist/login/resources/theme/theme.min.css
 
 check_dependency_%:
 	@echo -n "Checking dependency $*... "
 	@command -v $* >/dev/null 2>&1 && echo "found" || (echo "\nNo $* in PATH, please install it" && exit 1)
 
 
-build_theme: check_dependency_npm login/resources/theme/theme.css
+build_theme: check_dependency_npm login/resources/theme/theme.min.css
 
 $(bootstrap):
 	cd login/resources/theme && npm install
@@ -25,7 +26,7 @@ $(bootstrap):
 $(ef_theme):
 	git submodule update --init --recursive
 
-login/resources/theme/theme.css: $(scss_src) $(bootstrap) $(ef_theme)
+login/resources/theme/theme.min.css: $(scss_src) $(bootstrap) $(ef_theme)
 	cd login/resources/theme && npm run build
 
 css-clean:
