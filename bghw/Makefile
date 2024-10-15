@@ -1,0 +1,9 @@
+.PHONY: all
+
+all:
+
+dist:
+	rm -rf dist
+	mkdir -p dist/login/resources
+	cp login/theme.properties dist/login
+	cp -R login/resources/img dist/login/resources
