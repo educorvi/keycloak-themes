@@ -1,6 +1,6 @@
 # Installation
 ## Download from releases
-Download the zip file for the theme you want and extract it into the theme folder of keycloak.
+Download the zip file for the theme you want from the newest release and extract it into the theme folder of keycloak.
 
 ## Clone
 Clone as `keycloak/themes` directory to make all themes available to keycloak.
