@@ -1,5 +1,10 @@
 <#import "template.ftl" as layout>
+<#assign hint = (properties.loginHint = 'true')>
+
 <@layout.registrationLayout displayMessage=!messagesPerField.existsError('username','password') displayInfo=realm.password && realm.registrationAllowed && !registrationDisabled??; section>
+    <#if !hint && section = "header">
+        ${msg("loginAccountTitle")}
+    </#if>
     <#if section = "alert">
         <#if messagesPerField.existsError('username','password')>
             <div class="alert alert-danger">
@@ -8,8 +13,10 @@
         </#if>
     <#elseif section = "form">
         <div class="row align-items-start">
-            <div class="col-12 col-md-6">
-                <h5>${msg("loginAccountTitle")}</h5>
+            <div class="col-12 ${hint?then('col-md-6', '')}">
+                <#if hint>
+                    <h5>${msg("loginAccountTitle")}</h5>
+                </#if>
                 <form class="mt-4" onsubmit="login.disabled = true; return true;" action="${url.loginAction}"
                       method="post">
                     <!-- Username -->
@@ -81,24 +88,12 @@
                     </#if>
                 </form>
             </div>
-            <div class="col-12 col-md-6">
-                <hr class="d-block d-md-none">
-                <strong>Hinweise zum Extranet</strong>
-                <p>Das BGHW Extranet ist ein Serviceportal für alle
-                    Mitgliedsunternehmen der BGHW bzw. deren
-                    Bevollmächtigten. Bitte verwenden Sie für den
-                    Login die Unternehmensnummer (UNR.S) /
-                    Mitgliedsnummer als Benutzername und das
-                    schriftlich übersandte Extranet-Passwort.</p>
-                <p>Bitte Groß- und Kleinschreibung beachten!</p>
-                    <p>Bei technischen Problemen mit dem Extranet oder
-                    Fragen zu Ihren Zugangsdaten nutzen Sie bitte das
-                    Kontaktformular der Support-Anfrage:</p>
-                <p>[link zum Supportformular in uvc.OZG]</p>
-                    <p>Das Extranet der BGHW steht in der Zeit von 20.15
-                    Uhr bis 21.00 Uhr wegen der täglichen
-                    Datensicherung nur eingeschränkt zur Verfügung.</p>
-            </div>
+            <#if hint>
+                <div class="col-12 col-md-6">
+                    <hr class="d-block d-md-none">
+                    <#include "login-hint.ftl">
+                </div>
+            </#if>
         </div>
 
 

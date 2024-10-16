@@ -38,8 +38,21 @@ jobs:
       - uses: actions/download-artifact@v3
         with:
           path: artifacts
+      - name: Get the current tag
+        id: get_tag
+        run: echo "::set-output name=tag::$(git describe --tags --exact-match || echo '')"
+
+      - name: Determine if it's a prerelease
+        id: prerelease_check
+        run: |
+          if [[ "${{ steps.get_tag.outputs.tag }}" =~ ^v[0-9]+\.[0-9]+\.[0-9]+-pre\.[0-9]+$ ]]; then
+            echo "pre-release=true" >> $GITHUB_ENV
+          else
+            echo "pre-release=false" >> $GITHUB_ENV
+          fi
       - name: Release
         uses: softprops/action-gh-release@v1
         with:
           files: artifacts/*/*.zip
+          prerelease: ${{ env.pre-release }}
 

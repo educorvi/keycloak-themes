@@ -129,7 +129,9 @@
                         <div id="kc-content-wrapper" class="card-body">
                             <div class="row">
                                 <div class="col">
-                                    <h5 style="margin-top: 6px; padding-top: 3px"><#nested "header"></h5>
+                                    <h5 style="margin-top: 6px; padding-top: 3px">
+                                        <#nested "header">
+                                    </h5>
                                 </div>
                                 <#if realm.internationalizationEnabled  && locale.supported?size gt 1>
                                     <div class="col" id="kc-locale">

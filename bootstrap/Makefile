@@ -1,4 +1,4 @@
-.PHONY: all
+.PHONY: all, dist
 bootstrap = login/resources/node_modules/bootstrap/README.md
 
 all: build_theme

@@ -125,8 +125,10 @@
                         <#nested "alert">
 
                         <div id="kc-content-wrapper" class="card-body">
-                            <h2 id="realmName">${realm.displayName}</h2>
-                            <hr>
+                            <#if properties.anwendung != ''>
+                                <h2 id="applicationName">${properties.anwendung}</h2>
+                                <hr>
+                            </#if>
                             <div class="row">
                                 <div class="col">
                                     <h5 style="margin-top: 6px; padding-top: 3px"><#nested "header"></h5>
@@ -200,14 +202,17 @@
     </body>
     <footer class="p-3 border-top">
         <div class="d-flex flex-column flex-md-row justify-content-around w-100">
-            <div>
-                <p><a href="https://www.bghw.de/datenschutz">Datenschutz</a></p>
-                <p><a href="https://www.bghw.de/impressum">Impressum</a></p>
-                <p><a href="#">Barrierefreiheit</a></p>
-                <p><a href="mailto:Barrierefreiheit@bghw.de">Barriere melden</a></p>
+            <div class="footer-block">
+                <h5>Links:</h5>
+                <div>
+                    <p><a href="${properties.url_datenschutz}">Datenschutz</a></p>
+                    <p><a href="${properties.url_impressum}">Impressum</a></p>
+                    <p><a href="${properties.url_barrierefreiheit}">Barrierefreiheit</a></p>
+                    <p><a href="${properties.url_barriere_melden}">Barriere melden</a></p>
+                </div>
             </div>
 
-            <div>
+            <div class="footer-block">
                 <h5>Anschrift:</h5>
                 <address>
                     <p>BGHW</p>
@@ -216,13 +221,13 @@
                 </address>
             </div>
 
-            <div>
+            <div class="footer-block">
                 <h5>Kontakt:</h5>
                 <address>
                     <p>Telefon: +49 621 183-0</p>
                     <p>Telefax: +49 621 183-5191</p>
-                    <p><a href="mailto:info@bghw.de">E-Mail an die BGHW</a></p>
-                    <p><a href="https://www.bghw.de/">Internetseite der BGHW</a></p>
+                    <p><a href="${properties.url_email}">E-Mail an die BGHW</a></p>
+                    <p><a href="${properties.url_bghw}">Internetseite der BGHW</a></p>
                 </address>
             </div>
         </div>
@@ -268,11 +273,11 @@
             margin-bottom: 15px;
         }
 
-        address {
+        .footer-block > address, .footer-block >div {
             padding-left: 10px;
         }
 
-        #realmName {
+        #applicationName {
             font-size: 1.5rem;
         }
     </style>
