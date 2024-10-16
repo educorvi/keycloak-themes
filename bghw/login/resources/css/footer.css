@@ -1,0 +1,41 @@
+@media (min-width: 768px) {
+    body {
+        margin-bottom: 220px;
+    }
+    footer {
+        position: fixed;
+        bottom: 0;
+        left: 0;
+
+        max-height: 200px;
+        overflow-y: scroll;
+
+        margin-top: 0 !important;
+    }
+}
+
+footer {
+    margin-top: 50px;
+    width: 100%;
+    background: var(--bs-primary);
+    color: white;
+}
+footer a {
+    color: white;
+}
+
+footer p {
+    margin: 0 !important;
+}
+
+footer > div {
+    margin-bottom: -15px;
+}
+
+footer > div > div {
+    margin-bottom: 15px;
+}
+
+.footer-block > address, .footer-block >div {
+    padding-left: 10px;
+}

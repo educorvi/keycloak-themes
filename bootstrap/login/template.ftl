@@ -48,8 +48,8 @@
                 <#if !(auth?has_content && auth.showUsername() && !auth.showResetCredentials())>
                     <div class="text-center mt-5 mb-4" id="loginTitleDiv">
                         <#if properties.logo != ''>
-                                <img id="logoImg" src="${url.resourcesPath}${properties.logo}" class="rounded-3"
-                                     style="max-width: 100%"/>
+                            <img id="logoImg" src="${url.resourcesPath}${properties.logo}" class="rounded-3"
+                                 style="max-width: 100%"/>
                         <#else>
                             <h1>${realm.displayName}</h1>
                         </#if>
@@ -96,8 +96,8 @@
                 </#if>
             </header>
             <div class="row">
-                <div class="col-md-2 col-lg-3"></div>
-                <div class="col-12 col-md-8 col-lg-6">
+                <div class="col-md-1 col-lg-2"></div>
+                <div class="col-12 col-md-10 col-lg-8">
                     <div id="kc-content" class="card">
 
                         <#-- App-initiated actions should not see warning messages about the need to complete the action -->
@@ -127,6 +127,13 @@
 
                         <#nested "alert">
                         <div id="kc-content-wrapper" class="card-body">
+                            <#if properties.application?? && properties.application != ''>
+                                <h2 id="applicationName">${properties.application}</h2>
+                                <hr>
+                            <#elseif properties.realmNameAsApplication?? && properties.realmNameAsApplication = "true">
+                                <h2 id="applicationName">${realm.displayName}</h2>
+                                <hr>
+                            </#if>
                             <div class="row">
                                 <div class="col">
                                     <h5 style="margin-top: 6px; padding-top: 3px">
@@ -193,11 +200,12 @@
                         </div>
                     </div>
                 </div>
-                <div class="col-md-2 col-lg-3"></div>
+                <div class="col-md-1 col-lg-2"></div>
             </div>
 
         </div>
     </div>
     </body>
+    <#include "footer.ftl">
     </html>
 </#macro>
