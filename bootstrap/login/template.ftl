@@ -24,10 +24,6 @@
         </#if>
         <#if properties.scripts?has_content>
             <#list properties.scripts?split(' ') as script>
-            <#--
-            <script src="${url.resourcesPath}/${script}" type="text/javascript"></script>
-            <script src="${url.resourcesPath}/${script}" type="module"></script>
-            -->
                 <script src="${url.resourcesPath}/${script}" type="text/javascript"></script>
             </#list>
         </#if>
@@ -41,7 +37,6 @@
     <body class="container pt-3">
     <div class="">
         <div id="kc-header" class="${properties.kcHeaderClass!}">
-            <#-- <div id="kc-header-wrapper" class="${properties.kcHeaderWrapperClass!}">${kcSanitize(msg("loginTitleHtml",(realm.displayNameHtml!'')))?no_esc}</div> -->
         </div>
         <div class="${properties.kcFormCardClass!} <#if displayWide>${properties.kcFormCardAccountClass!}</#if>">
             <header class="${properties.kcFormHeaderClass!}">
@@ -55,8 +50,6 @@
                         </#if>
 
                     </div>
-                <#--                    <h2 class="text-center mt-4 mb-5">${(realm.displayName!'App Name')}</h2>-->
-                <#--                    <h2 class="text-center mt-4 mb-5">${client.name}</h2>-->
                 <#else>
                     <#if displayRequiredFields>
                         <div class="${properties.kcContentWrapperClass!}">
@@ -148,11 +141,6 @@
                                                     style="padding: 6px 12px;">
                                                 ${locale.current}
                                             </button>
-
-                                            <#--                                            <button type="button" class="btn btn-outline-primary dropdown-toggle"-->
-                                            <#--                                                    data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"-->
-                                            <#--                                                    style="padding: 6px 12px;">-->
-
                                             </button>
                                             <ul class="dropdown-menu">
                                                 <#list locale.supported as l>
@@ -161,20 +149,6 @@
                                             </ul>
                                         </div>
 
-
-                                        <#--                                        <div id="kc-locale-wrapper" class="${properties.kcLocaleWrapperClass!}">-->
-                                        <#--                                            <div class="kc-dropdown dropdown show" id="kc-locale-dropdown">-->
-                                        <#--                                                <a href="#" id="kc-current-locale-link"-->
-                                        <#--                                                   class="btn btn-outline-primary dropdown-toggle"-->
-                                        <#--                                                   role="button" id="dropdownMenuButton" data-toggle="dropdown"-->
-                                        <#--                                                   aria-haspopup="true" aria-expanded="false">${locale.current}</a>-->
-                                        <#--                                                <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">-->
-                                        <#--                                                    <#list locale.supported as l>-->
-                                        <#--                                                        <a class="dropdown-item" href="${l.url}">${l.label}</a>-->
-                                        <#--                                                    </#list>-->
-                                        <#--                                                </div>-->
-                                        <#--                                            </div>-->
-                                        <#--                                        </div>-->
                                     </div>
                                 </#if>
                             </div>

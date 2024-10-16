@@ -20,7 +20,6 @@
                 <form class="mt-4" onsubmit="login.disabled = true; return true;" action="${url.loginAction}"
                       method="post">
                     <!-- Username -->
-
                     <div class="form-floating">
                         <#if usernameEditDisabled??>
                             <input tabindex="1" type="text"
@@ -35,11 +34,6 @@
                         </#if>
                         <label style="margin-bottom: 0"
                                for="username"><#if !realm.loginWithEmailAllowed>${msg("username")}<#elseif !realm.registrationEmailAsUsername>${msg("usernameOrEmail")}<#else>${msg("email")}</#if></label>
-                        <#--                <div class="invalid-feedback">-->
-                        <#--                    <#if messagesPerField.existsError('username','password')>-->
-                        <#--                            ${kcSanitize(messagesPerField.getFirstError('username','password'))?no_esc}-->
-                        <#--                    </#if>-->
-                        <#--                </div>-->
                     </div>
 
                     <!-- Pw -->
@@ -49,11 +43,6 @@
                                id="password" name="password"
                                autofocus placeholder="password">
                         <label for="password">${msg("password")}</label>
-                        <#--                <div class="invalid-feedback">-->
-                        <#--                    <#if messagesPerField.existsError('username','password')>-->
-                        <#--                            ${kcSanitize(messagesPerField.getFirstError('username','password'))?no_esc}-->
-                        <#--                    </#if>-->
-                        <#--                </div>-->
                     </div>
 
                     <!-- Forgot pw -->
