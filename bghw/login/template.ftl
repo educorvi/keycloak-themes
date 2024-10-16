@@ -249,7 +249,11 @@
         footer {
             margin-top: 50px;
             width: 100%;
-            background: white;
+            background: #004994;
+            color: white;
+        }
+        footer a {
+            color: white;
         }
 
         footer p {
