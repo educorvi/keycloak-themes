@@ -1,9 +1,22 @@
 :root {
-    --bs-primary: var(--color-consulting);
-    --bs-secondary: var(--color-education);
-    --bs-success: var(--color-software);
-    --bs-info: var(--color-education);
-    --bs-warning: var(--color-highlight);
-    --bs-danger: var(--color-cta);
+    --bs-primary: var(--color-consulting) !important;
+    --bs-secondary: var(--color-education) !important;
+    --bs-success: var(--color-software) !important;
+    --bs-info: var(--color-education) !important;
+    --bs-warning: var(--color-highlight) !important;
+    --bs-danger: var(--color-cta) !important;
 
+}
+div#kc-header-wrapper {
+    color: transparent; /* make the text invisible */
+    user-select: none;
+
+    background-image: url("https://educorvi.de/++plone++plonetheme.educorvi/educorvi-logo.svg");
+    background-repeat: no-repeat;
+    background-size: 90%;
+    background-position: center;
+    width: 250px;
+    height: 80px;
+    background-color: rgb(255, 255, 255);
+    border-radius: 20px;
 }

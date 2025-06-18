@@ -1,0 +1,189 @@
+$color-mode-type: media-query;
+
+@import "../node_modules/bootstrap/scss/bootstrap";
+@import "../node_modules/bootstrap-icons/font/bootstrap-icons.min.css";
+@import '../node_modules/font-awesome/css/font-awesome.min.css';
+
+
+body {
+  padding: 10px;
+}
+
+.form-card {
+  margin: 0 auto;
+  max-width: 500px;
+}
+
+#kc-locale-dropdown {
+  width: fit-content;
+}
+
+.kcFormHeaderClass {
+  display: flex;
+  flex-direction: row-reverse;
+  justify-content: space-between;
+  align-items: center;
+}
+
+button {
+  @extend .btn;
+  @extend .btn-outline-secondary;
+  border-radius: $border-radius;
+}
+
+#kc-current-locale-link {
+  @extend .btn;
+  @extend .btn-outline-secondary;
+  @extend .dropdown-toggle;
+}
+
+#kc-page-title {
+  font-size: 1.5rem;
+  margin: 0;
+  padding: 0;
+}
+
+#kc-content {
+  @extend .card-body;
+}
+
+.kcSignUpClass {
+  margin: 0 $card-spacer-x*-1 $card-spacer-y*-1;
+
+  padding: $card-spacer-y $card-spacer-x;
+
+  @extend .card-footer;
+
+  display: flex;
+  justify-content: center;
+
+}
+
+.kcFormSettingClass {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  @extend .mb-2;
+
+}
+
+.kcSelectAuthListItemTitle {
+  @extend h5;
+}
+
+.kcSelectAuthListItemClass {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  @extend .mb-2;
+  padding: 10px 0;
+
+}
+
+.kcSelectAuthListItemArrowIconClass {
+  width: 100%;
+  padding: 0 20px;
+}
+
+.kcSelectAuthListItemDescriptionClass {
+  @extend .row;
+
+  & > * {
+    @extend .col;
+  }
+}
+
+.kcSelectAuthListItemIconPropertyClass {
+  font-size: 2rem;
+  padding: 10px 20px;
+}
+
+.form-control[aria-invalid="true"] {
+  @extend .is-invalid;
+}
+
+.kc-form-group:not(:last-child) {
+  @extend .mb-3;
+}
+
+.kcAlertClass {
+  margin-top: $card-spacer-y*-1;
+  margin-right: $card-spacer-x*-1;
+  margin-left: $card-spacer-x*-1;
+  border-radius: 0;
+  display: flex;
+
+  & > div {
+    width: fit-content;
+  }
+
+  & > .kcAlertTitleClass {
+    padding-left: 10px;
+  }
+}
+
+//#kc-info-message {
+//    margin-top: $card-spacer-y*-1;
+//    margin-right: $card-spacer-x*-1;
+//    margin-left: $card-spacer-x*-1;
+//    @extend .alert;
+//    @extend .alert-info;
+//}
+
+.alert-error {
+  @extend .alert-danger;
+}
+
+#kc-social-providers {
+  > h2 {
+    font-size: 1.2rem;
+    @extend .mb-3;
+  }
+}
+
+a:has(span[data-kc-msg="proceedWithAction"]), a:has(span[data-kc-msg="backToApplication"]) {
+  @extend .btn;
+  @extend .btn-outline-primary;
+  width: 100%;
+}
+
+.kcFormSocialAccountNameClass {
+  padding-left: 10px;
+}
+
+.kcFormSocialAccountListClass {
+  list-style-type: none;
+  padding: 0;
+
+  & > li:not(:last-child) {
+    @extend .mb-2;
+  }
+}
+
+.kcFormSocialAccountListButtonClass {
+  width: 100%;
+}
+
+#kc-login, #authenticateWebAuthnButton {
+  @extend .mb-2;
+}
+
+.kcHeaderWrapperClass {
+  display: flex;
+  justify-content: center;
+  font-size: 2rem;
+  margin-top: 2.5rem;
+  margin-bottom: 2.5rem;
+}
+
+#kc-header {
+  display: flex;
+  justify-content: center;
+}
+
+#kc-header-wrapper {
+  font-size: 2rem;
+  margin-top: 2.5rem;
+  margin-bottom: 2.5rem;
+}
