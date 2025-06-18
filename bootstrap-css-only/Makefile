@@ -11,7 +11,7 @@ dist: build_theme
 	cp login/theme.properties dist/login
 	cp -R login/resources/node_modules/bootstrap/dist dist/login/resources/node_modules/bootstrap
 	#cp -R login/resources/js dist/login/resources
-	cp -R login/resources/css/*.css dist/login/resources/css
+	cp -R login/resources/css/* dist/login/resources/css
 
 login/resources/css/bootstrap.min.css: $(bootstrap) login/resources/css/bootstrap.scss
 	cd login/resources && npm install && npm run build
