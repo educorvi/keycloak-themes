@@ -9,7 +9,6 @@ dist: build_theme
 	mkdir -p dist/login/resources/js
 	mkdir -p dist/login/resources/css
 	cp login/theme.properties dist/login
-	cp login/*.ftl dist/login
 	cp -R login/resources/node_modules/bootstrap/dist dist/login/resources/node_modules/bootstrap
 	#cp -R login/resources/js dist/login/resources
 	cp -R login/resources/css/*.css dist/login/resources/css
